@@ -1,0 +1,17 @@
+#dropdown-menu-list {
+    right: 0;
+    left: auto;
+}
+
+.nav-items{
+    flex-direction: row-reverse;
+}
+
+.logo-div{
+    margin-left: 1%;
+}
+
+.sections-div{
+    margin-right: 1%;
+}
+

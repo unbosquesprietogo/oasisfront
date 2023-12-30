@@ -1,0 +1,13 @@
+.title-product{
+    margin-bottom: 20px;
+}
+.alert-product{
+    margin-top: 20px;
+}
+
+.product-container {
+    background-color: #f8f8f8; /* El color de fondo que prefieras */
+    padding: 20px; /* Añadir algún relleno si es necesario */
+    border-radius: 8px; /* Opcional: para bordes redondeados */
+  }
+  
