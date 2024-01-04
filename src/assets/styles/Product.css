@@ -9,5 +9,44 @@
     background-color: #f8f8f8; /* El color de fondo que prefieras */
     padding: 20px; /* Añadir algún relleno si es necesario */
     border-radius: 8px; /* Opcional: para bordes redondeados */
+}
+
+.table-div {
+    width: 100%; /* Toma el ancho del contenedor padre */
+    overflow-x: auto; /* Añade desplazamiento horizontal si es necesario */
+}
+
+/* Opcional: Estilos para las celdas de la tabla, utilizando porcentajes */
+.table th {
+    width: auto; /* O un porcentaje específico, según lo necesites */
+}
+
+/* Estilos por defecto (para dispositivos móviles) */
+.actions-column {
+    width: 10%; /* Un ancho mayor para móviles, ajusta según necesidad */
+}
+
+.other-columns {
+    width: 30%; /* O un porcentaje específico para móviles */
+}
+
+/* Media query para pantallas de escritorio */
+@media (min-width: 768px) { /* 768px es un punto de quiebre común para tablets/dispositivos mayores */
+    .actions-column{
+        width: 25%; /* Ancho para pantallas grandes */
+    }
+
+    .actions-column {
+        width: 9%; /* Ancho para pantallas grandes */
+    }
+}
+
+h2 {
+    color: #ba2737; /* Color de la marca */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente estilizada */
   }
-  
+
+  h1 {
+    color: #ba2737; /* Color de la marca */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente estilizada */
+  }

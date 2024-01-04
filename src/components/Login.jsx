@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/Login.css';
 import logo from '../assets/img/logo.png'
@@ -9,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showErrorAlert, setShowErrorAlert] = useState(false);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/NavigationBar.css';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.png'
 
 
 const NavigationBar = () => {
   const [username, setUsername] = useState('Usuario');
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     sessionStorage.removeItem(btoa('token'));

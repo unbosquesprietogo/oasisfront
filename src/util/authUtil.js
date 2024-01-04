@@ -6,6 +6,6 @@ export const isTokenValid = () => {
     const parsedToken = JSON.parse(atob(token.split('.')[1]));
     const expiry = parsedToken.exp;
     const now = new Date();
-    return now.getTime() < expiry * 1000; // Convierte a milisegundos y compara
+    return now.getTime() < expiry * 1000; 
   };
   

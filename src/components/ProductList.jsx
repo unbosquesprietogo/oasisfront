@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Table, Button, Row, Col, Form } from 'react-bootstrap';
+import '../assets/styles/Product.css';
 
 
 const ProductList = () => {
@@ -122,14 +123,6 @@ const ProductList = () => {
         );
     });
 
-    const styles = {
-        actionsColumn: {
-            width: '25%' 
-        },
-        otherColumns: {
-            width: '9%' 
-        }
-    };
     
 
     const renderProductDetails = (product) => {
@@ -156,8 +149,8 @@ const ProductList = () => {
                             <tbody>
                                 {filteredDetails.map((detail, index) => (
                                     <tr key={index}>
-                                        <td style={styles.otherColumns}>{detail.id}</td>
-                                        <td style={styles.otherColumns}>
+                                        <td className='otherColumns'>{detail.id}</td>
+                                        <td className='otherColumns'>
                                             {editingDetailId === detail.id ? (
                                                 <input 
                                                     type="text" 
@@ -167,7 +160,7 @@ const ProductList = () => {
                                             ) : (
                                                 detail.size
                                             )}</td>
-                                        <td style={styles.otherColumns}>
+                                        <td className='otherColumns'>
                                             {editingDetailId === detail.id ? (
                                                 <input 
                                                     type="text" 
@@ -178,7 +171,7 @@ const ProductList = () => {
                                                 detail.color
                                             )}
                                         </td>
-                                        <td style={styles.otherColumns}>
+                                        <td className='otherColumns'>
                                             {editingDetailId === detail.id ? (
                                                 <input 
                                                     type="number" 
@@ -190,7 +183,7 @@ const ProductList = () => {
                                                 detail.quantity
                                             )}
                                         </td>
-                                        <td style={styles.actionsColumn}>
+                                        <td className='actionsColumn'>
                                             {editingDetailId === detail.id ? (
                                                 <div className="btn-group" role="group">
                                                     <Button variant="primary" onClick={() => handleSaveDetail(detail.id)}>
@@ -223,6 +216,7 @@ const ProductList = () => {
             <h1 className="mb-4">Lista de Productos</h1>
             <Row className="mb-3">
                 <Col>
+                    <p>Nombre:</p>
                     <Form.Control
                         type="text"
                         placeholder="Buscar por nombre..."
@@ -231,6 +225,7 @@ const ProductList = () => {
                     />
                 </Col>
                 <Col>
+                    <p>Categoría:</p>
                     <Form.Control
                         type="text"
                         placeholder="Filtrar por categoría..."
@@ -239,6 +234,7 @@ const ProductList = () => {
                     />
                 </Col>
                 <Col>
+                    <p>Talla:</p>
                     <Form.Control
                         type="text"
                         placeholder="Filtrar por talla..."
@@ -247,6 +243,7 @@ const ProductList = () => {
                     />
                 </Col>
                 <Col>
+                    <p>Color:</p>
                     <Form.Control
                         type="text"
                         placeholder="Filtrar por color..."
@@ -255,6 +252,7 @@ const ProductList = () => {
                     />
                 </Col>
             </Row>
+            <div className='table-div'>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -312,6 +310,7 @@ const ProductList = () => {
                     ))}
                 </tbody>
             </Table>
+            </div>
         </Container>
     );
 };
