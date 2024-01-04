@@ -3,7 +3,7 @@ import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/NavigationBar.css';
 import { Link, useNavigate} from 'react-router-dom';
-
+import logo from '../assets/img/logo.png'
 
 
 const NavigationBar = () => {
@@ -32,7 +32,7 @@ const NavigationBar = () => {
       <Navbar.Brand className='logo-div' href="#home">
         <img
           alt="Logo"
-          src="src\\assets\\img\\logo.png"
+          src={logo}
           width="30"
           height="30"
           className="d-inline-block align-top sections-div"

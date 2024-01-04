@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/Login.css';
+import logo from '../assets/img/logo.png'
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -74,7 +75,7 @@ const Login = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 offset-md-3 login-container">
-            <img src="src\assets\img\logo.png" alt="Oasis Logo" className="img-fluid brand-image" />
+            <img src={logo} alt="Oasis Logo" className="img-fluid brand-image" />
             <h2>Oasis Uniformes</h2>
             <h2>Iniciar Sesión</h2>
             <form onSubmit={handleSubmit}>
