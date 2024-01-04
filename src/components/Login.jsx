@@ -40,7 +40,7 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch('http://24.199.101.251:8080/auth/login', {
+      const response = await fetch('http://64.23.156.209:8080/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

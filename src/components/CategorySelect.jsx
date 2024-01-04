@@ -13,7 +13,7 @@ function CategorySelect({ onCategoryChange, selectedCategory }) {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://24.199.101.251:8080/api/v1/categories');
+      const response = await axios.get('http://64.23.156.209:8080/api/v1/categories');
       setCategories(response.data);
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -23,7 +23,7 @@ function CategorySelect({ onCategoryChange, selectedCategory }) {
   const handleNewCategory = async () => {
     if (!newCategoryName) return;
     try {
-      const response = await axios.post('http://24.199.101.251:8080/api/v1/categories', { name: newCategoryName });
+      const response = await axios.post('http://64.23.156.209:8080/api/v1/categories', { name: newCategoryName });
       const newCategory = response.data;
       setCategories([...categories, newCategory]);
       onCategoryChange(newCategory);
