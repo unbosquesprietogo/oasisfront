@@ -175,7 +175,7 @@
       }
     
       // Enviar el producto a la API
-      axios.post('http://localhost:8080/api/v1/products', transformedProduct)
+      axios.post('http://24.199.101.251:8080/api/v1/products', transformedProduct)
     .then(response => {
       // Manejar la respuesta del servidor
       console.log(response.data);

@@ -24,7 +24,7 @@ const ProductList = () => {
     const handleSaveProduct = async (productId) => {
         console.log('product', editedProduct);
         try {
-            await axios.put(`http://localhost:8080/api/v1/products/${productId}`, editedProduct);
+            await axios.put(`http://24.199.101.251:8080/api/v1/products/${productId}`, editedProduct);
             
             // Actualizar el estado local
             setProducts(products.map(product => {
@@ -44,7 +44,7 @@ const ProductList = () => {
     const handleSaveDetail = async (detailId) => {
         console.log('detail', editedDetail);
         try {
-            await axios.put(`http://localhost:8080/api/v1/products/detail/${detailId}`, editedDetail);
+            await axios.put(`http://24.199.101.251:8080/api/v1/products/detail/${detailId}`, editedDetail);
            
             // Actualizar el estado local
             setProducts(products.map(product => {
@@ -90,7 +90,7 @@ const ProductList = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/v1/products');
+                const response = await axios.get('http://24.199.101.251:8080/api/v1/products');
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error al obtener los productos:', error);
