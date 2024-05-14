@@ -7,13 +7,17 @@ function CategorySelect({ onCategoryChange, selectedCategory }) {
   const [showModal, setShowModal] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState('');
 
+
   useEffect(() => {
     fetchCategories();
+
   }, []);
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://64.23.156.209:8080/api/v1/categories');
+      const ip = sessionStorage.getItem('ip');
+      const port = sessionStorage.getItem('puerto');
+      const response = await axios.get(`http://${ip}:${port}/api/v1/categories`);
       setCategories(response.data);
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -23,7 +27,9 @@ function CategorySelect({ onCategoryChange, selectedCategory }) {
   const handleNewCategory = async () => {
     if (!newCategoryName) return;
     try {
-      const response = await axios.post('http://64.23.156.209:8080/api/v1/categories', { name: newCategoryName });
+      const ip = sessionStorage.getItem('ip');
+      const port = sessionStorage.getItem('puerto');
+      const response = await axios.post(`http://${ip}:${port}/api/v1/categories`, { name: newCategoryName });
       const newCategory = response.data;
       setCategories([...categories, newCategory]);
       onCategoryChange(newCategory);
@@ -36,29 +42,29 @@ function CategorySelect({ onCategoryChange, selectedCategory }) {
 
   return (
     <>
-    <div>
-    <Button 
-      variant="outline-secondary"
-      className=''
-      onClick={() => setShowModal(true)}
-      style={{ margin: "10px 0" }} // Esto agrega 10px de margen arriba y abajo
-    >
-      Añadir Categoría
-    </Button>
+      <div>
+        <Button 
+          variant="outline-secondary"
+          className=''
+          onClick={() => setShowModal(true)}
+          style={{ margin: "10px 0" }} 
+        >
+          Añadir Categoría
+        </Button>
 
-      <select
-        className="form-control"
-        value={selectedCategory?.id || ''}
-        onChange={(e) => onCategoryChange(categories.find(cat => cat.id === Number(e.target.value)))}
-        style={{ margin: "10px 0" }}
-      >
-        <option value="">Seleccione una categoría</option>
-        {categories.map(cat => (
-          <option key={cat.id} value={cat.id}>
-            {cat.name}
-          </option>
-        ))}
-      </select>
+        <select
+          className="form-control"
+          value={selectedCategory?.id || ''}
+          onChange={(e) => onCategoryChange(categories.find(cat => cat.id === Number(e.target.value)))}
+          style={{ margin: "10px 0" }}
+        >
+          <option value="">Seleccione una categoría</option>
+          {categories.map(cat => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
       </div>
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>

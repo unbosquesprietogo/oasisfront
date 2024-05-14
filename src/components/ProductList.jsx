@@ -24,7 +24,9 @@ const ProductList = () => {
     const handleSaveProduct = async (productId) => {
         console.log('product', editedProduct);
         try {
-            await axios.put(`http://64.23.156.209:8080/api/v1/products/${productId}`, editedProduct);
+            const ip = sessionStorage.getItem('ip');
+            const port = sessionStorage.getItem('puerto');
+            await axios.put(`http://${ip}:${port}/api/v1/products/${productId}`, editedProduct);
             
             // Actualizar el estado local
             setProducts(products.map(product => {
@@ -44,7 +46,9 @@ const ProductList = () => {
     const handleSaveDetail = async (detailId) => {
         console.log('detail', editedDetail);
         try {
-            await axios.put(`http://64.23.156.209:8080/api/v1/products/detail/${detailId}`, editedDetail);
+            const ip = sessionStorage.getItem('ip');
+            const port = sessionStorage.getItem('puerto');
+            await axios.put(`http://${ip}:${port}/api/v1/products/detail/${detailId}`, editedDetail);
            
             // Actualizar el estado local
             setProducts(products.map(product => {
@@ -88,9 +92,14 @@ const ProductList = () => {
     
 
     useEffect(() => {
+
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://64.23.156.209:8080/api/v1/products');
+                const ip = sessionStorage.getItem('ip');
+                const port = sessionStorage.getItem('puerto');
+                console.log(ip,`http://${ip}:${port}/api/v1/products`)
+                const response = await axios.get(`http://${ip}:${port}/api/v1/products`);
+                
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error al obtener los productos:', error);
@@ -98,6 +107,7 @@ const ProductList = () => {
         };
 
         fetchProducts();
+        
     }, []);
 
 

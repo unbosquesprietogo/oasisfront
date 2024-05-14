@@ -36,7 +36,7 @@ const NavigationBar = () => {
           height="30"
           className="d-inline-block align-top sections-div"
         />{' '}
-       Oasis Uniformes
+       Inventario
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className='nav-items sections-div' id="basic-navbar-nav">
@@ -47,8 +47,8 @@ const NavigationBar = () => {
               <i className="fas fa-user"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu id="dropdown-menu-list" className="dropdown-menu-left">
-              <Dropdown.Item href="">Crear Venta</Dropdown.Item>
-              <Dropdown.Item href="">Lista de Ventas</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/create-sell">Crear Venta</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/sell-list">Lista de Ventas</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
@@ -67,8 +67,8 @@ const NavigationBar = () => {
               <i className="fas fa-user"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu id="dropdown-menu-list" className="dropdown-menu-left">
-              <Dropdown.Item href="">Crear Combo</Dropdown.Item>
-              <Dropdown.Item href="">Lista de Combos</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/create-combo">Crear Combo</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/combo-list">Lista de Combos</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
@@ -77,7 +77,7 @@ const NavigationBar = () => {
               <i className="fas fa-user"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu id="dropdown-menu-list" className="dropdown-menu-left">
-              <Dropdown.Item href="#configuracion">Configuración</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/config">Configuración</Dropdown.Item>
               <Dropdown.Item onClick={handleLogout}>Cerrar Sesión</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

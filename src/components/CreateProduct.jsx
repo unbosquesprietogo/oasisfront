@@ -8,6 +8,7 @@
 
   function CreateProduct() {
 
+
     const [product, setProduct] = useState({
       name: "",
       price: "",
@@ -155,6 +156,8 @@
     };
 
     const saveProduct = () => {
+      const ip = sessionStorage.getItem('ip');
+      const port = sessionStorage.getItem('puerto');
       
       // Continuar con el procesamiento si pasa las validaciones
       const transformedProduct = {
@@ -175,7 +178,7 @@
       }
     
       // Enviar el producto a la API
-      axios.post('http://64.23.156.209:8080/api/v1/products', transformedProduct)
+      axios.post(`http://${ip}:${port}/api/v1/products`, transformedProduct)
     .then(response => {
       // Manejar la respuesta del servidor
       console.log(response.data);
